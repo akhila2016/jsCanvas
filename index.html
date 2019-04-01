@@ -9,23 +9,30 @@
 		}
 	</style>
 
-
 </head>
 <body>
-	<canvas id="canvas" width="1000" height="500">
-  An alternative text describing what your canvas displays. 
-</canvas>
-
+<canvas id="canvas">
+</canvas>  
+<label for="cp">Choose a Color:</label>
+<input type = "color" id = "cp"> 
 <script>
-	// Rectangles 
-	var canvas = document.querySelector('canvas');
+	 
+	var canvas = document.querySelector('#canvas');
 	var ctx = canvas.getContext('2d');
+
+	window.addEventListener('resize',resizeCanvas, false);
+	function resizeCanvas() {
+		canvas.width = window.innerWidth*0.8;
+		canvas.height = window.innerHeight*0.8;
+	}
+	resizeCanvas();
+
 	var x = 0
 	var y = 0
 	var color = "red"
 	var radius = 20;
 	draw();
-	
+
 	// Circle
 	function draw() {
 	ctx.beginPath();
@@ -41,9 +48,10 @@
 	window.addEventListener('mousemove', function (e) {
     	//console.log(e.pageX);
     	//console.log(e.pageY);
-    	x = e.clientX - canvas.offsetLeft;
-    	y = e.clientY - canvas.offsetTop;
+    	x = e.clientX 
+    	y = e.clientY
 		draw()
+		color = document.querySelector('#cp').value;
 	})
 
 	window.addEventListener('touchmove', function (e) {
@@ -51,12 +59,15 @@
     	//console.log(e.pageY);
     	e.preventDefault()
     	var touch = e.touches[0]
-    	x = touch.clientX - canvas.offsetLeft;
-    	y = touch.clientY - canvas.offsetTop;
+    	x = touch.clientX 
+    	y = touch.clientY
 		draw()
 	})
-	
-	
+
+	window.addEventListener('orientationchange', function() {
+		screen.orientation.angle
+	}
+
 	window.addEventListener('keydown', function(e) {
 		if (e.keyCode == 66) {
 			color = "blue";
@@ -86,7 +97,7 @@
 	})
 
 </script>
-
+<body>
 	<br><input type="file" id="myFile" size="50" onchange="myFunction()"><br>
 
 </body>
