@@ -48,8 +48,8 @@
 	window.addEventListener('mousemove', function (e) {
     	//console.log(e.pageX);
     	//console.log(e.pageY);
-    	x = e.clientX 
-    	y = e.clientY
+    	x = e.clientX - canvas.offsetLeft;
+    	y = e.clientY - canvas.offsetTop;
 		draw()
 		color = document.querySelector('#cp').value;
 	})
@@ -59,8 +59,8 @@
     	//console.log(e.pageY);
     	e.preventDefault()
     	var touch = e.touches[0]
-    	x = touch.clientX 
-    	y = touch.clientY
+    	x = touch.clientX - canvas.offsetLeft;
+    	y = touch.clientY - canvas.offsetTop;
 		draw()
 	})
 
