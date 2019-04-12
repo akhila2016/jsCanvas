@@ -50,10 +50,13 @@
     	//console.log(e.pageY);
     	x = e.clientX - canvas.offsetLeft;
     	y = e.clientY - canvas.offsetTop;
-		draw()
-		color = document.querySelector('#cp').value;
+	draw()
 	})
-
+	
+	window.addEventListener('mousedown', function(e) {
+    	color = document.querySelector('#cp').value;
+   	 })
+	
 	window.addEventListener('touchmove', function (e) {
     	//console.log(e.pageX);
     	//console.log(e.pageY);
